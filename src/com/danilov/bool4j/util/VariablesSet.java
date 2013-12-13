@@ -17,6 +17,11 @@ public class VariablesSet {
 		init(keySet);
 	}
 	
+	public VariablesSet(final List<String> keySet) {
+		this.keySet = new ArrayList<String>();
+		init(keySet);
+	}
+	
 	public HashMap<String, Boolean> get() {
 		return variables;
 	}
@@ -40,6 +45,17 @@ public class VariablesSet {
 			this.keySet.add(key);
 			variables.put(key, false);
 		}
+		Collections.sort(this.keySet);
+	}
+	
+	private void init(final List<String> keyList) {
+		counter = 0;
+		variables = new HashMap<String, Boolean>();
+		keySet = keyList;
+		
+		for (String key : keyList)
+			variables.put(key, false);
+		
 		Collections.sort(this.keySet);
 	}
 

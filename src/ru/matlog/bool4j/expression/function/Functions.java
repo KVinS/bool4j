@@ -25,8 +25,6 @@ public final class Functions {
 			setArgumentQuantity(1);
 			setStringRepresentation("neg");
 		}
-		
-		
 	}; 
 	
 	static {
@@ -51,5 +49,4 @@ public final class Functions {
 		} 
 		return o;
 	}
-	
 }

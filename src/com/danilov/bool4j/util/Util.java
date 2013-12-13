@@ -22,5 +22,30 @@ public final class Util {
 		}
 		return cloned;
 	}
-	
+	      public static boolean bracketValidator(String s ) {
+    int bracketCounter = 0;
+ 
+    for ( int i = 0; i < s.length(); i++ ) {
+        switch ( s.charAt(i) ) {
+            case '(':
+                bracketCounter++;
+                break;
+            case ')':
+                bracketCounter--;
+                break;
+        }
+}
+        // Проверяем, что количество закрывающих скобок
+        // не превышает количество открывающих.
+        if ( bracketCounter < 0 ) {
+            return false;
+        }
+    // Если в счётчике ещё остались значения,
+    // то значит в конце строки не хватает закрывающих скобок.
+    if ( bracketCounter != 0 ) {
+        return false;
+    }
+    // Сообщаем, что всё ок.
+    return true;
+}
 }

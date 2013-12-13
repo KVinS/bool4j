@@ -3,8 +3,6 @@ package ru.matlog.bool4j.expression;
 import java.util.Map;
 import java.util.Set;
 
-import ru.matlog.bool4j.closures.ClosureClass;
-
 public abstract class Expression {
 	
 	/**

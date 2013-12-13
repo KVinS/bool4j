@@ -54,25 +54,13 @@ public abstract class Operator extends Expression {
 
     public String toString() {
         StringBuilder builder = new StringBuilder();
-        ExpressionType type1 = firstOperand.getType();
-        if (type1 == ExpressionType.OPERATOR) {
-            builder.append("(");
-            builder.append(firstOperand.toString());
-            builder.append(")");
-        } else {
-            builder.append(firstOperand.toString());
-        }
+        builder.append("(");
+        builder.append(firstOperand.toString());
         builder.append(" ");
         builder.append(getStringRepresentation());
         builder.append(" ");
-        ExpressionType type2 = secondOperand.getType();
-        if (type2 == ExpressionType.OPERATOR) {
-            builder.append("(");
-            builder.append(secondOperand.toString());
-            builder.append(")");
-        } else {
-            builder.append(secondOperand.toString());
-        }
+        builder.append(secondOperand.toString());
+        builder.append(")");
         return builder.toString();
     }
     

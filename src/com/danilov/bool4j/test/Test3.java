@@ -1,12 +1,9 @@
 package com.danilov.bool4j.test;
 
-import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 
 import ru.matlog.bool4j.expression.Calculable;
-import ru.matlog.bool4j.expression.CalculableRecursiveImpl;
 import ru.matlog.bool4j.expression.Expression;
 import ru.matlog.bool4j.expression.RecursiveCalculableFactoryImpl;
 import ru.matlog.bool4j.parser.Parser;
@@ -19,14 +16,11 @@ public class Test3 implements ITest {
 
 	@Override
 	public void test() {
-		Set<String> set = new HashSet<String>();
-		set.add("x");
-		set.add("y");
-		set.add("z");
 		Parser p = new RecursiveParserImpl();
-		Expression exp = p.parse("(x + y + ((z <=> z) -> y))");
+		Expression exp = p.parse("((y xor x) xor ((x * y) * z))");
+		Util.Log(exp.toString());
 		Calculable calc = exp.toCalculable(new RecursiveCalculableFactoryImpl());
-		VariablesSet varSet = new VariablesSet(set);
+		VariablesSet varSet = new VariablesSet(calc.getVariableNames());
 		List<String> vv = varSet.getKeySet();
 		for (String key : vv) {
 			Util.LogNoLn(key + " ");
