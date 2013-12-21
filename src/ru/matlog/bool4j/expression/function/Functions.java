@@ -4,9 +4,13 @@ import java.util.HashMap;
 import java.util.Map;
 
 import ru.matlog.bool4j.expression.Expression;
-
+/**
+ * Класс для хранения всех функций
+ * @author Семён
+ *
+ */
 public final class Functions {
-    private static final Map<String, Class> functions = new HashMap<>();
+    private static final Map<String, Class> functions = new HashMap<String, Class>();
 
 	
 	public static final class NEGATIVE extends Function {
@@ -39,6 +43,11 @@ public final class Functions {
 		return functions.containsKey(str);
 	}
 	
+	/**
+	 * Получение функции по её строковому представлению
+	 * @param representation строковое представление
+	 * @return функция
+	 */
 	public static Function getFunction(final String representation) {
 		Class clazz = functions.get(representation);
 		Function o = null;

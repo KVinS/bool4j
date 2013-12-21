@@ -1,5 +1,7 @@
 package com.danilov.converter;
 
+import com.danilov.bool4j.util.Util;
+import com.danilov.bool4j.util.VariablesSet;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -14,8 +16,7 @@ import ru.matlog.bool4j.expression.function.Functions;
 import ru.matlog.bool4j.expression.operator.Operator;
 import ru.matlog.bool4j.expression.operator.Operators;
 
-import com.danilov.bool4j.util.Util;
-import com.danilov.bool4j.util.VariablesSet;
+
 
 public class SKNFConverter implements Converter {
 
@@ -41,11 +42,14 @@ public class SKNFConverter implements Converter {
 	
 	private Expression toExpression(final List<Map<String, Boolean>> variablesSets, final List<String> keys) {
 		Expression finalResult = null;
-		Operator res = Operators.getOperator("*");
+                
+
+                
+		Operator res = Operators.getOperator(Operators.CONJUNCTION.REPRESENTATION);
 		Operator tmp;
 		Operator tmp2;
 		for (Map<String, Boolean> set : variablesSets) {
-			tmp = Operators.getOperator("+");
+			tmp = Operators.getOperator(Operators.DISJUNCTION.REPRESENTATION);
 			for (String key : keys) {
 				Expression exp;
 				Boolean val = set.get(key);
@@ -61,7 +65,7 @@ public class SKNFConverter implements Converter {
 					tmp.setFirstOperand(exp);
 				} else if (tmp.firstOperandSet() && tmp.secondOperandSet()) {
 					tmp2 = tmp;
-					tmp = Operators.getOperator("+");
+					tmp = Operators.getOperator(Operators.DISJUNCTION.REPRESENTATION);
 					tmp.setFirstOperand(tmp2);
 					tmp.setSecondOperand(exp);
 				} else if (tmp.firstOperandSet()){
@@ -76,7 +80,7 @@ public class SKNFConverter implements Converter {
 				res.setFirstOperand(sumRes);
 			} else if (res.firstOperandSet() && res.secondOperandSet()) {
 				tmp2 = res;
-				res = Operators.getOperator("*");
+				res = Operators.getOperator(Operators.CONJUNCTION.REPRESENTATION);
 				res.setFirstOperand(tmp2);
 				res.setSecondOperand(sumRes);
 			} else if (res.firstOperandSet()) {

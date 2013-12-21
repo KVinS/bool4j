@@ -44,6 +44,14 @@ public class BoolInterface extends javax.swing.JFrame {
         initComponents();
         jTabbedPane1.setVisible(false);
         jScrollPane3.setVisible(false);
+        
+        jTextField2.setText(Operators.DISJUNCTION.REPRESENTATION);
+        jTextField3.setText(Operators.CONJUNCTION.REPRESENTATION);
+        jTextField4.setText(Operators.IMPLICATION.REPRESENTATION);
+        jTextField5.setText(Operators.EQUAL.REPRESENTATION);
+        jTextField6.setText(Operators.XOR.REPRESENTATION);
+        
+   
     }
 
     public static void main(String args[]) {
@@ -105,6 +113,15 @@ public class BoolInterface extends javax.swing.JFrame {
         jTable1 = new javax.swing.JTable();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jCheckBox1 = new javax.swing.JCheckBox();
+        jButton1 = new javax.swing.JButton();
+        jTextField2 = new javax.swing.JTextField();
+        jTextField3 = new javax.swing.JTextField();
+        jTextField4 = new javax.swing.JTextField();
+        jTextField5 = new javax.swing.JTextField();
+        jTextField6 = new javax.swing.JTextField();
         jScrollPane3 = new javax.swing.JScrollPane();
         jTextArea2 = new javax.swing.JTextArea();
         jButton10 = new javax.swing.JButton();
@@ -275,17 +292,87 @@ public class BoolInterface extends javax.swing.JFrame {
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
+        jTextArea1.setInheritsPopupMenu(true);
         jScrollPane1.setViewportView(jTextArea1);
 
         jTabbedPane1.addTab("Результат анализа", jScrollPane1);
 
+        jLabel1.setText("<html>Дизъюнкция:\n<br><br>\nКонъюнкция:\n<br><br>\nИмпликация:\n<br><br>\nЭквиваленция:\n<br><br>\nXOR:\n<br><br>\n");
+
+        jCheckBox1.setText("Вывод в лог файл");
+        jCheckBox1.setEnabled(false);
+
+        jButton1.setText("Применить");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        jTextField2.setText("jTextField2");
+
+        jTextField3.setText("jTextField3");
+
+        jTextField4.setText("jTextField4");
+
+        jTextField5.setText("jTextField5");
+
+        jTextField6.setText("jTextField6");
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(101, 101, 101)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jTextField2, javax.swing.GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE)
+                            .addComponent(jTextField3)
+                            .addComponent(jTextField4)
+                            .addComponent(jTextField5)
+                            .addComponent(jTextField6)))
+                    .addComponent(jCheckBox1)
+                    .addComponent(jButton1))
+                .addContainerGap(424, Short.MAX_VALUE))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jCheckBox1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton1)
+                .addContainerGap(93, Short.MAX_VALUE))
+        );
+
+        jTabbedPane1.addTab("Настройка", jPanel2);
+
         jTextArea2.setEditable(false);
+        jTextArea2.setBackground(new java.awt.Color(214, 217, 223));
         jTextArea2.setColumns(20);
         jTextArea2.setRows(5);
-        jTextArea2.setEnabled(false);
+        jTextArea2.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         jTextArea2.setFocusable(false);
-        jTextArea2.setOpaque(false);
         jTextArea2.setRequestFocusEnabled(false);
+        jTextArea2.setSelectedTextColor(new java.awt.Color(0, 0, 0));
+        jTextArea2.setSelectionColor(new java.awt.Color(214, 217, 223));
         jTextArea2.setVerifyInputWhenFocusTarget(false);
         jScrollPane3.setViewportView(jTextArea2);
 
@@ -315,7 +402,7 @@ public class BoolInterface extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jTabbedPane1)
+                    .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                     .addComponent(jScrollPane3)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jTextField1)
@@ -360,7 +447,7 @@ public class BoolInterface extends javax.swing.JFrame {
                     updateResult();
                 } catch (Exception e) {
                     JOptionPane.showMessageDialog(this,
-                            "Сёма уже работает над этой исправлением ошибки! Или Макс. Или Эдик.",
+                            e.getMessage(),
                             "Известная ошибка!",
                             JOptionPane.ERROR_MESSAGE);
                 }
@@ -433,6 +520,7 @@ public class BoolInterface extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonBackspaceActionPerformed
 
     private void updateResult() {
+        System.gc();
         jTabbedPane1.setVisible(true);
         jScrollPane3.setVisible(true);
         Expression exp = p.parse(jTextField1.getText());
@@ -459,8 +547,6 @@ public class BoolInterface extends javax.swing.JFrame {
         int y = 0;
 
 
-        int row = jTable1.getSelectedRow();
-
         int j = 0;
         while (varSet.notEnd()) {
             Map<String, Boolean> m = varSet.get();
@@ -479,9 +565,7 @@ public class BoolInterface extends javax.swing.JFrame {
                 result += (s + " ");
             }
 
-            if (row == j) {
-            }
-
+           
 
             Boolean val = calc.calculate();
             String s;
@@ -551,16 +635,28 @@ public class BoolInterface extends javax.swing.JFrame {
 
         jTextArea2.setText(result2);
         jScrollPane2.setViewportView(jTable1);
+        System.gc();
     }
 
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
-        updateResult();
+       // updateResult();
     }//GEN-LAST:event_jTable1MouseClicked
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+       Operators.DISJUNCTION.REPRESENTATION= jTextField2.getText();
+       Operators.CONJUNCTION.REPRESENTATION= jTextField3.getText();
+       Operators.IMPLICATION.REPRESENTATION= jTextField4.getText();
+       Operators.EQUAL.REPRESENTATION= jTextField5.getText();
+       Operators.XOR.REPRESENTATION= jTextField6.getText();
+         Operators.refreshOperators();
+        updateResult();
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     private void insertIntoInputField(String s) {
         jTextField1.setText(jTextField1.getText().substring(0, jTextField1.getSelectionStart()) + s + jTextField1.getText().substring(jTextField1.getSelectionStart(), jTextField1.getText().length()) + " ");
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton1Rbr;
     private javax.swing.JButton jButtonBackspace;
@@ -573,7 +669,10 @@ public class BoolInterface extends javax.swing.JFrame {
     private javax.swing.JButton jButtonXor;
     private javax.swing.JButton jButtonY;
     private javax.swing.JButton jButtonZ;
+    private javax.swing.JCheckBox jCheckBox1;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
@@ -582,6 +681,11 @@ public class BoolInterface extends javax.swing.JFrame {
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextArea jTextArea2;
     private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField jTextField3;
+    private javax.swing.JTextField jTextField4;
+    private javax.swing.JTextField jTextField5;
+    private javax.swing.JTextField jTextField6;
     private javax.swing.JButton tableButton;
     // End of variables declaration//GEN-END:variables
 }

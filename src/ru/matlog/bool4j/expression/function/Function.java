@@ -6,7 +6,12 @@ import java.util.Set;
 
 import ru.matlog.bool4j.expression.Expression;
 import ru.matlog.bool4j.expression.ExpressionType;
-
+import ru.matlog.bool4j.expression.ValidationException;
+/**
+ * Функция
+ * @author Max
+ *
+ */
 public abstract class Function extends Expression {
 	private int argumentQuantity;
 	private Expression arguments[];
@@ -76,5 +81,17 @@ public abstract class Function extends Expression {
     public ExpressionType getType() {
         return ExpressionType.FUNCTION;
     }
+
+	@Override
+	public void validate() {
+		for (int i = 0; i < getArgumentQuantity(); i++) {
+			Expression e = getArguments()[i];
+			if (e == null) {
+				throw new ValidationException("Не хватает " + i + "-ого аргумента в функции [" + getStringRepresentation() 
+						+ "]");
+			}
+			getArguments()[i].validate();
+		}
+	}
 
 }

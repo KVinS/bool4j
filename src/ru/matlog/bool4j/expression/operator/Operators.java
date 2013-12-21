@@ -5,13 +5,18 @@ import java.util.Map;
 
 import ru.matlog.bool4j.expression.ExpressionType;
 
-public final class Operators {
+/**
+ * Класс для хранения всех стандартных операторов + есть возможность расширения
+ * @author Семён
+ *
+ */
+public  class Operators {
 
-    private static final Map<String, Class> operators = new HashMap<>();
+    private static  Map<String, Class> operators;
 
     //multiply
-    public static final class CONJUNCTION extends Operator {
-        public static final String REPRESENTATION = "*";
+    public static  class CONJUNCTION extends Operator {
+        public static String REPRESENTATION = "*";
 
         @Override
         public boolean apply(Map<String, Boolean> variables) {
@@ -32,8 +37,8 @@ public final class Operators {
     }
 
     //sum
-    public static final class DISJUNCTION extends Operator {
-        public static final String REPRESENTATION = "+";
+    public static  class DISJUNCTION extends Operator {
+        public static  String REPRESENTATION = "+";
 
         @Override
         public boolean apply(Map<String, Boolean> variables) {
@@ -54,8 +59,8 @@ public final class Operators {
     }
 
     //->
-    public static final class IMPLICATION extends Operator {
-        public static final String REPRESENTATION = "->";
+    public static  class IMPLICATION extends Operator {
+        public static  String REPRESENTATION = "->";
 
         @Override
         public boolean apply(Map<String, Boolean> variables) {
@@ -76,8 +81,8 @@ public final class Operators {
     }
 
     //xor
-    public static final class XOR extends Operator {
-        public static final String REPRESENTATION = "xor";
+    public static  class XOR extends Operator {
+        public static  String REPRESENTATION = "xor";
 
         @Override
         public boolean apply(Map<String, Boolean> variables) {
@@ -98,8 +103,8 @@ public final class Operators {
     }
 
     //equ
-    public static final class EQUAL extends Operator {
-        public static final String REPRESENTATION = "<=>";
+    public static  class EQUAL extends Operator {
+        public static  String REPRESENTATION = "<=>";
 
         @Override
         public boolean apply(Map<String, Boolean> variables) {
@@ -119,7 +124,11 @@ public final class Operators {
         }
     }
 
-    static {
+    static { refreshOperators();
+    }
+    
+    public static void refreshOperators(){
+        operators = new HashMap<String, Class>();
         operators.put(DISJUNCTION.REPRESENTATION, DISJUNCTION.class);
         operators.put(CONJUNCTION.REPRESENTATION, CONJUNCTION.class);
         operators.put(IMPLICATION.REPRESENTATION, IMPLICATION.class);
@@ -127,15 +136,20 @@ public final class Operators {
         operators.put(EQUAL.REPRESENTATION, EQUAL.class);
     }
 
-    public static void add(final Class operator, final String representation) {
+    public static void add( Class operator,  String representation) {
         operators.put(representation, operator);
     }
 
-	public static boolean contains(final String str) {
+	public static boolean contains( String str) {
 		return operators.containsKey(str);
 	}
-
-    public static Operator getOperator(final String representation) {
+	
+	/**
+	 * Получение оператора по его строковому представлению
+	 * @param representation строковое представление
+	 * @return оператор
+	 */
+    public static Operator getOperator( String representation) {
         Class clazz = operators.get(representation);
         Operator o = null;
         try {

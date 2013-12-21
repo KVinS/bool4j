@@ -4,12 +4,13 @@
  */
 package ru.matlog.bool4j.expression;
 
+import java.text.ParseException;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
 /**
- *
+ * Переменная
  * @author Max
  */
 public class Variable extends Expression {
@@ -34,7 +35,7 @@ public class Variable extends Expression {
 
     @Override
     public Set<String> getVariablesNames() {
-        Set<String> set = new HashSet<>();
+        Set<String> set = new HashSet<String>();
         set.add(var);
         return set;
     }
@@ -48,5 +49,12 @@ public class Variable extends Expression {
     public ExpressionType getType() {
         return ExpressionType.VARIABLE;
     }
+
+	@Override
+	public void validate() {
+		if (var.equals(" ")) {
+			throw new ValidationException("Переменная пробел - не лучший выбор");
+		}
+	}
     
 }

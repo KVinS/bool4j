@@ -6,48 +6,40 @@ import java.util.Set;
 public abstract class Expression {
 	
 	/**
-	 * ���������� �������� ���������
-	 * @param variables ����� ����������
-	 * @return �������� ���������� � ���������� ����������
+	 * Вычисление значения выражения
+	 * @param variables список пар "переменная - значение"
+	 * @return вычисленное значение
 	 */
     public abstract Boolean calculate(final Map<String, Boolean> variables);
     
     /**
      * 
-     * @return ����� ���� ���������� ������� ���������
+     * @return получение списка переменных
      */
     public abstract Set<String> getVariablesNames();
-    
+        
     /**
      * 
-     * @return A set of Maps of variables, including its name(String) and value(Boolean).
-     */
-    //public abstract Set<Map<String, Boolean>> getVariables();
-    
-    /**
-     * 
-     * @return ��� ��������� (���������, ������, �������� etc)
+     * @return тип выражения (константа, функция, переменная etc)
      */
     public abstract ExpressionType getType();
     
     /**
-     * ��������� ������� Calculable (��� ��������������� �� ���������� ���������� ����������)
-     * @param calculableFactory ������� �������� ���� Calculable
-     * @return ������ Calculable
+     * Получение объекта типа calculable для дальнейших вычислений
+     * @param calculableFactory фабрика calculable
+     * @return calculable-объект
      */
     public Calculable toCalculable(final CalculableFactory calculableFactory) {
 		return calculableFactory.newCalculable(this); 
     }
     
+    /**
+     * 
+     * @return является выражение правильно сформированным
+     */
+    public abstract void validate();
+    
     @Override
     public abstract String toString();
     
-    /**
-     * Checks if this expression with set of variables(vars) belongs to the closure class(clos_lass).
-     * @param clos_lass - closure class to check whether the expression belongs to
-     * @param vars - map of variables to be checked with.
-     * @return boolean
-     */
-    // TO BE DONE
-    //public abstract boolean belongsTo(ClosureClass clos_lass, Map<String, Boolean> vars);
 }

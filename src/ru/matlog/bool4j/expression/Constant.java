@@ -9,7 +9,7 @@ import java.util.Map;
 import java.util.Set;
 
 /**
- *
+ * Константа
  * @author Max
  */
 public class Constant extends Expression {
@@ -47,4 +47,9 @@ public class Constant extends Expression {
     public ExpressionType getType() {
         return ExpressionType.CONSTANT;
     }
+
+	@Override
+	public void validate() {
+		//всё всегда ок
+	}
 }

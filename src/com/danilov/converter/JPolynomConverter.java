@@ -4,6 +4,7 @@ package com.danilov.converter;
  * Конвертер выражения в полином Жегалкина
  */
 
+import com.danilov.bool4j.util.VariablesSet;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -15,7 +16,7 @@ import ru.matlog.bool4j.expression.operator.Operators;
 import ru.matlog.bool4j.parser.Parser;
 import ru.matlog.bool4j.parser.RecursiveParserImpl;
 
-import com.danilov.bool4j.util.VariablesSet;
+
 
 public class JPolynomConverter implements Converter {
 
